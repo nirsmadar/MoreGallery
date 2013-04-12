@@ -1,4 +1,4 @@
-<div id="aboutPage">
+test<div id="aboutPage">
 	<div>
 		<h1>מור גלרי, גלריה לריהוט עתיק</h1>
 		<article id="textCon">
