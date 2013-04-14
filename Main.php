@@ -39,10 +39,11 @@ function GenArticles()
 	foreach ($articles as $article) { 
 		if ($article['IsVisible'] == 0) continue; 
 		$i++;
-		$text = mb_substr($article['ShortDescription'], 0, 350, "utf-8")."...";?>
+        $title = GetShortString($article['Title'], 36);
+        $text = GetShortString($article['ShortDescription'], 400); ?>
 		
 		<article id='article_<?php echo $i?>' class='article' <?php if ($i == 1) echo 'style=display:block'?>>
-			<h1><?php echo $article['Title']?></h1>
+			<h1><?php echo $title?></h1>
 			<h4 class='articleDate'>פורסם ב-<?php echo DateTimeToDate($article['PublishedDate'])?></h4>
 			<div class='articleMain'>
 				<div class='articleLeft'>
@@ -80,7 +81,7 @@ function GenArticles()
 	Switches articles on every article-button click
 	*/
 	$(".articleButton").click(function() {
-		//Reseting the timer
+		//Freeze the timer
 		clearInterval(Timer);
 		//Getting the next article index
 		var nextArticleIndex = this.id.substr(this.id.lastIndexOf('_') + 1);
@@ -99,6 +100,20 @@ function GenArticles()
 		$("#article_" + pNextArticleIndex).fadeIn('slow', function(){});
 		PrevArticleIndex = pNextArticleIndex;
 	}
+
+    /*
+    Freezes the timer when the mouse is over article
+     */
+    $(".article").mouseover(function() {
+        clearInterval(Timer);
+    });
+
+    /*
+    Unfreezes the timer when the mouse leaves article
+     */
+    $(".article").mouseout(function() {
+        Timer = setInterval(SwitchArticlesOnInterval, 4000);
+    });
 	</script>
 	<?php
 }
@@ -129,7 +144,7 @@ function GenFurnitureCategories($pFirstCategory, $pLastCategory)
 	{ 
 		if ($category['IsVisible'] == 0) continue; 
 		$i++; 
-		$imagePath = "images/furnitureCategories/".$category['Image']	?>
+		$imagePath = "upload/furnitureCategories/".$category['Image']	?>
 		
 		<a href="<?php echo $category['Url']; ?>" class="categoryLink">
 			<section class="categoryCon" <?php if($i == 1) echo "style='margin-right:0;'"; ?>>
@@ -141,7 +156,7 @@ function GenFurnitureCategories($pFirstCategory, $pLastCategory)
 				}	
 				else
 				{	
-					echo "<div class='defaultImg'>M</div>";
+					echo "<div class='defaultImg'>More Gallery</div>";
 				}	?>
 				<div class="categorySub"><?php echo $category['SubTitle']?></div>
 				<div class="categoryText"><?php echo $category['Text']?></div>

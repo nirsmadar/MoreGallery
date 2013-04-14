@@ -22,7 +22,7 @@ function GenSampleLetters()
 		$i++;
 		if ($i >= 5) $flowersIndex = 1;
 		else $flowersIndex++;
-		$text = mb_substr($letter['Text'], 0, 100, "utf-8")."..."; ?>
+		$text = GetShortString($letter['Text'], 100) ?>
 		
 		<section class='letterCon' <?php if ($i == 1) echo "style='margin-right:0;'"?>>
 			<div class='letter'>

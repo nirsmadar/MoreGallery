@@ -4,6 +4,11 @@ function DateTimeToDate($pDateTime)
 	return date("d/m/Y", strtotime($pDateTime));
 }
 
+function GetShortString($pLongString, $pNewLength)
+{
+    return (strlen($pLongString) >= $pNewLength) ? mb_substr($pLongString, 0, $pNewLength, "utf-8")."..." : $pLongString;
+}
+
 function GetFurnitureCategories($pFirstCategory = 0, $pLastCategory = 0)
 {
 	$que = "SELECT F.Id, F.Order, F.Title, F.SubTitle, F.Text, F.Image, F.IsVisible, F.TitleBgColor, F.Url

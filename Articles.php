@@ -5,7 +5,6 @@
 <?php
 function GenArticles()
 {
-	$maxNumOfArticles = 4;
 	$que = "SELECT A.Id, A.Order, A.Title, A.ShortDescription, A.IsVisible, A.PublishedDate, A.Image
 			FROM Article A
 			ORDER BY A.PublishedDate DESC, A.Order";
