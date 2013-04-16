@@ -55,15 +55,10 @@ email:     	support@themepunch.com
 	-	DARK-LIGHTBOX STYLE	-
 ************************************/
 
-
 .dark-lightbox.overlay{
 	background-color:#000;
 	z-index:999990;
-	position:fixed;	
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";	
-	filter: alpha(opacity=80);	
-	-moz-opacity:0.8;
-	-khtml-opacity: 0.8;
+	position:fixed;
 	opacity: 0.8;
 }
 
@@ -72,8 +67,6 @@ email:     	support@themepunch.com
 	background-color:#fff;
 	width:64px;
 	height:64px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
 	border-radius: 10px;
 	margin-left:-32px;
 	margin-right:-32px;
@@ -83,13 +76,11 @@ email:     	support@themepunch.com
 
 .dark-lightbox.lightboxitem{
 	position:fixed;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
 	border-radius: 10px 10px 10px 10px;
 	width:300px;
-	height:auto;
-	background-color:#fff;
-	z-index:999992;
+    height:auto;
+    background-color:#fff;
+    z-index:999992;
 	
 	/*-webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.5);

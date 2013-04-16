@@ -37,18 +37,60 @@ function GenSampleLetters()
 		</section>
 	<?php 
 	}	?>
-	
 		
-			<a href='' id='addLetterCon'>
-				<div id='addLetter'>
-					<p>
-					ביקרתם בחנות?
-					<br/>נהנים לגלוש באתר?
-					</p>
-					<h2 class='letterTitle'>לחצו להוספת מכתב אישי!</h2>
-				</div>
-			</a>
-		
+        <div id='addLetterCon' onclick="ShowDialog()">
+            <div id='addLetter'>
+                <p>
+                ביקרתם בחנות?
+                <br/>נהנים לגלוש באתר?
+                </p>
+                <h2 class='letterTitle'>לחצו להוספת מכתב אישי!</h2>
+            </div>
+        </div>
+
+        <div id="dialogCon">
+            <div id="addLetterForm" class="dialog">
+                <div onclick=CloseDialog() id="closeButton"></div>
+                <h2>כתבו לנו</h2>
+                <div class="">
+                    <div style="float:right;">
+                        <div>שם</div>
+                        <input class="input2" type="text"/>
+                    </div>
+                    <div class="clear">&nbsp;</div>
+
+                    <div class="formElementCon">כתובת מייל</div>
+                    <input type="text" class="input2" style="text-align:left"/>
+
+                    <div class="formElementCon">כותרת</div>
+                    <input type="text" class="input2"/>
+
+                    <div class="formElementCon">תוכן ההודעה</div>
+                    <textarea class="input2" style="height:150px"></textarea>
+
+                    <div class="formElementCon">
+                        <input type="submit" value="שליחה"/>
+                    </div>
+                    <div class="clear">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function CloseDialog()
+            {
+                $("#dialogCon").cssFadeOut(500, function()
+                {
+                    this.css("display", "none");
+                });
+            }
+            function ShowDialog()
+            {
+                $("#dialogCon").cssFadeIn(500, function()
+                {
+                    this.css("display", "block");
+                });
+            }
+        </script>
 	</div>
 <?php
 }

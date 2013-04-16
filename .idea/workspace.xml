@@ -5,20 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65c9195b-bff6-4b0f-9504-04b87f74f137" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Articles.php" afterPath="$PROJECT_DIR$/Articles.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Functions.php" afterPath="$PROJECT_DIR$/Functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main.php" afterPath="$PROJECT_DIR$/Main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MegafolioHead.html" afterPath="$PROJECT_DIR$/MegafolioHead.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UiFunctions.php" afterPath="$PROJECT_DIR$/UiFunctions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/megafolio/css/lightbox.css" afterPath="$PROJECT_DIR$/scripts/megafolio/css/lightbox.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MoreGallery.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1365953301156" ignored="false" />
+    <file path="/Dummy.txt" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1366025885152" ignored="false" />
     <file path="/About.php" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1365838707343" ignored="false" />
-    <file path="/style.css" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1365956567237" ignored="false" />
-    <file path="/a.dummy" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1365839574070" ignored="false" />
+    <file path="/style.css" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1366124393126" ignored="false" />
+    <file path="/a.dummy" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1366044508233" ignored="false" />
     <file path="/Main.php" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1365955502821" ignored="false" />
     <file path="/Functions.php" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1365955078134" ignored="false" />
+    <file path="/UiFunctions.php" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1366124696997" ignored="false" />
+    <file path="/index.php" changelist="65c9195b-bff6-4b0f-9504-04b87f74f137" time="1366137181671" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +40,26 @@
     <favorites_list name="MoreGallery" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="84" column="34" selection-start="2323" selection-end="2323" vertical-scroll-proportion="0.64669925">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="6" selection-start="1380" selection-end="1382" vertical-scroll-proportion="-10.431373">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -59,8 +81,12 @@
         <option value="$PROJECT_DIR$/Articles.php" />
         <option value="$PROJECT_DIR$/Functions.php" />
         <option value="$PROJECT_DIR$/Main.php" />
-        <option value="$PROJECT_DIR$/UiFunctions.php" />
+        <option value="$PROJECT_DIR$/AntiqueFurniture.php" />
+        <option value="$PROJECT_DIR$/scripts/megafolio/css/lightbox.css" />
+        <option value="$PROJECT_DIR$/MegafolioHead.html" />
         <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/UiFunctions.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -71,8 +97,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1680" />
-    <option name="height" value="1010" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -118,6 +146,68 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoreGallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoreGallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="megafolio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoreGallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoreGallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="megafolio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoreGallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoreGallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="megafolio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -126,12 +216,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="editor" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="editor" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/PHPStorm Projects" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig" serverName="WAMP" serverId="29ea7e80-0bfe-40bf-a974-9c7c090383ea">
     <servers>
@@ -197,15 +287,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1010" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988507" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290398" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32873562" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2577256" sideWeight="0.6709602" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25826192" sideWeight="0.67126435" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -292,79 +382,122 @@
         <state line="7" column="0" selection-start="193" selection-end="193" vertical-scroll-proportion="-4.576923" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/megafolio/css/lightbox.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="4" selection-start="2227" selection-end="2227" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/About.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Articles.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="21" selection-start="105" selection-end="106" vertical-scroll-proportion="0.10391198" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/megafolio/js/jquery.themepunch.megafolio.js">
+    <entry file="file://$PROJECT_DIR$/Functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="322" column="122" selection-start="7641" selection-end="7641" vertical-scroll-proportion="0.19374248" />
+        <state line="6" column="23" selection-start="102" selection-end="116" vertical-scroll-proportion="0.12718205">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/megafolio/js/jquery.themepunch.megafolio.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/megafolio/css/settings.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="9" selection-start="53" selection-end="54" vertical-scroll-proportion="0.020757021">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AntiqueFurniture.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="13" selection-start="4681" selection-end="4681" vertical-scroll-proportion="-9.730769">
+        <state line="146" column="13" selection-start="4774" selection-end="4774" vertical-scroll-proportion="-12.384615">
+          <folding>
+            <element signature="e#730#749#0" expanded="true" />
+            <element signature="e#863#913#0" expanded="true" />
+            <element signature="e#1201#1240#0" expanded="true" />
+            <element signature="e#1309#1342#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/megafolio/css/lightbox.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="191" column="0" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.82009923">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
+    <entry file="file://$PROJECT_DIR$/scripts/megafolio/js/jquery.themepunch.plugins.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="315" column="19" selection-start="5036" selection-end="5036" vertical-scroll-proportion="0.53864735">
+        <state line="27" column="8" selection-start="5028" selection-end="5028" vertical-scroll-proportion="0.35258725">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/scripts/megafolio/js/jquery.themepunch.megafolio.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="20" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.19077307">
-          <folding />
+        <state line="842" column="66" selection-start="23524" selection-end="23534" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1365456766280" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1365456766280" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1365456766280" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1365456766280" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1365456766280" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UiFunctions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="30" selection-start="523" selection-end="537" vertical-scroll-proportion="0.29675812">
+        <state line="50" column="28" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.4180929">
           <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#form#0;n#div#0;n#li#2;n#ul#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#li#2;n#ul#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#!!top" expanded="true" />
-            <marker date="1365955921521" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1365955921521" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1365955921521" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1365955921521" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1365955921521" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1365955921521" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1366124737847" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1366124737847" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1366124737847" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MegafolioHead.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="98" selection-start="423" selection-end="423" vertical-scroll-proportion="0.14547677">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/About.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="33" selection-start="2384" selection-end="2384" vertical-scroll-proportion="0.35900623">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="1" selection-start="2285" selection-end="2285" vertical-scroll-proportion="0.75829387">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="16" selection-start="893" selection-end="893" vertical-scroll-proportion="0.21073298">
-          <folding>
-            <element signature="e#4473#4538#0" expanded="true" />
-          </folding>
+        <state line="38" column="6" selection-start="1380" selection-end="1382" vertical-scroll-proportion="-10.431373">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Functions.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="23" selection-start="102" selection-end="116" vertical-scroll-proportion="0.12718205">
+        <state line="84" column="34" selection-start="2323" selection-end="2323" vertical-scroll-proportion="0.64669925">
           <folding />
         </state>
       </provider>
