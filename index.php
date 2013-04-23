@@ -1,10 +1,14 @@
 <!DOCTYPE HTML>
 <?php
+include "Constants.php";
 include "DataBase.php";
 include "Functions.php";
 include "UiFunctions.php";
 
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$pageTitle = isset($_GET['PageTitle']) ? $_GET['PageTitle'] : null;
+$seoData = array();
+if (isset($pageTitle)) $seoData = GetSeoData($pageTitle );
+
 ?>
 
 <html>
@@ -25,7 +29,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 		<div id='headerCon'>
 			<header>
 				<div id='logo'>
-					<a href=''>
+					<a href="<?php echo BASE_URL ?>">
 						<img src='images/logo.png' title='לעמוד הבית' alt='More Gallery Logo'/>
 					</a>
 				</div>
@@ -44,26 +48,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 		</div>
 		<div id='page'>	
 			<div id="content">
-				<?php 
-				Switch ($page)
-				{
-					case 1: 
-						include('Main.php');
-						break;
-					case 2: 
-						include('About.php');
-						break;
-					case 3: 
-						include('Letters.php');
-						break;
-					case 4: 
-						include('Articles.php');
-						break;
-					case 5:
-						include('AntiqueFurniture.php');
-						break;
-				}
-				?>
+				<?php GenContent($seoData)  ?>
 			</div>
 		</div>
 	</div>
@@ -105,20 +90,21 @@ function GenTopMenu($pMenuType)
 	<ul id="topMenu">
 		<li class="topMenuItemCon">
 			<div>
-				<a href="">דף הבית</a>
+				<a href="<?php echo BASE_URL ?>">דף הבית</a>
 			</div>
 		</li>
 	<?php	
 	foreach ($items as $item)
 	{	
 		if ($item['IsVisible'] == 0) continue;
-		$newTab = $item['IsNewTab'] = 0 ? '' : "target='_blank'";	
+		$newTab = $item['IsNewTab'] == 0 ? '' : "target='_blank'";
 		$subItems = GetMenuItems($pMenuType, $item['Id']);
-		$areSubItems = (isset($subItems) && count($subItems) > 0 && $item['IsSubVisible'] == 1)?>
+		$areSubItems = (isset($subItems) && count($subItems) > 0 && $item['IsSubVisible'] == 1);
+        $url = isset($item['Url']) ? $item['Url'] : $item['Title']   ?>
 		
 		<li id="topMenuItem_<?php echo $item['Order']?>" class="topMenuItemCon">
 			<div>
-				<a href='<?php echo $item['Url']?>' <?php echo $newTab?>>
+				<a href='<?php echo $url?>' <?php echo $newTab?>>
 					<?php echo $item['Title']; if ($areSubItems) echo "&#x25BE;";?>
 				</a>
 			</div>
@@ -172,7 +158,7 @@ function CanGenMenu($pMenuType)
 
 function GetMenuItems($pMenuType, $pParent)
 {
-	$que = "SELECT M.Id, M.MenuType, M.Parent, M.Order, M.Title, M.Url, M.IsVisible, M.IsSubVisible, M.IsNewTab
+	$que = "SELECT M.Id, M.MenuType, M.Parent, M.Order, M.Title, M.Url, M.IsVisible, M.IsSubVisible, M.IsNewTab, M.PageId
 			FROM MenuItem M
 			WHERE M.MenuType =".$pMenuType." AND M.Parent = ".$pParent."
 			ORDER BY M.Order";

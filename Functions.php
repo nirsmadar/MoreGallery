@@ -24,3 +24,38 @@ function GetFurnitureCategories($pFirstCategory = 0, $pLastCategory = 0)
 	
 	return $categories;
 }
+
+function GetSeoData($pPageTitle)
+{
+    if (!isset($pPageTitle)) return;
+    $que = "SELECT M.PageId as PageId, M.Url as OuterUrl, P.IsStatic, P.Url as InnerUrl
+			FROM MenuItem M LEFT JOIN Page P ON (M.PageId = P.Id)
+			WHERE M.Title = '".$pPageTitle."'";
+    $sql = mysql_query($que) or die('Query failure:' .mysql_error());
+    $seoData = mysql_fetch_assoc($sql);
+    return $seoData;
+}
+
+function GenContent($pSeoData)
+{
+    if (!isset($pSeoData) || count($pSeoData) == 0)
+    {
+        include('Main.php');
+        return;
+    }
+    else if (count($pSeoData) > 0)
+    {
+        if ($pSeoData['IsStatic'])
+        {
+            return;
+        }
+        else if (isset($pSeoData['InnerUrl']))
+        {
+            include($pSeoData['InnerUrl']);
+            return;
+        }
+    }
+
+    include('Main.php');
+    return;
+}

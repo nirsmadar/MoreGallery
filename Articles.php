@@ -21,7 +21,8 @@ function GenArticles()
 	{	
 		if ($article['IsVisible'] == 0) continue; 
 		$i++;
-		$text = mb_substr($article['ShortDescription'], 0, 160, "utf-8")."...";	
+        $title = GetShortString($article['Title'], 36);
+        $text = GetShortString($article['ShortDescription'], 160);
 		$float = ($i %2 == 0) ? "left" : "right";
 	
 		if ($i % 2 != 0)
@@ -33,7 +34,7 @@ function GenArticles()
 			<a href="" >
 				<img src="images/articles/<?php echo $article['Image']?>" style="float:right;" />
 				<div style="float:left;width:200px;">
-					<h1><?php echo $article['Title']?></h1>
+					<h1><?php echo $title ?></h1>
 					<h4 class='articleDate'>פורסם ב-<?php echo DateTimeToDate($article['PublishedDate'])?></h4>
 					<p><?php echo $text?></p>
 				</div>

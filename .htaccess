@@ -1,0 +1,12 @@
+#Check if the mod_rewrite module is on
+<IfModule mod_rewrite.c>
+    #Use the RewriteEngine
+    RewriteEngine on
+
+    #If the URL entered doesn't exists and it's a directory
+    RewriteCond %{REQUEST_FILENAME} !-d
+    #Or- if the URL entered doesn't exists and it's a file
+    RewriteCond %{REQUEST_FILENAME} !-f
+    #Then Rewrite the request as follows:
+    RewriteRule ^(.+)$ index.php?PageTitle=$1 [QSA,L]
+</IfModule>
