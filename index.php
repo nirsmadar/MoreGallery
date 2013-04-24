@@ -95,8 +95,7 @@ function GenTopMenu($pMenuType)
 		</li>
 	<?php	
 	foreach ($items as $item)
-	{	
-		if ($item['IsVisible'] == 0) continue;
+	{
 		$newTab = $item['IsNewTab'] == 0 ? '' : "target='_blank'";
 		$subItems = GetMenuItems($pMenuType, $item['Id']);
 		$areSubItems = (isset($subItems) && count($subItems) > 0 && $item['IsSubVisible'] == 1);
@@ -158,9 +157,9 @@ function CanGenMenu($pMenuType)
 
 function GetMenuItems($pMenuType, $pParent)
 {
-	$que = "SELECT M.Id, M.MenuType, M.Parent, M.Order, M.Title, M.Url, M.IsVisible, M.IsSubVisible, M.IsNewTab, M.PageId
+	$que = "SELECT M.Id, M.MenuType, M.Parent, M.Order, M.Title, M.Url, M.IsSubVisible, M.IsNewTab, M.PageId
 			FROM MenuItem M
-			WHERE M.MenuType =".$pMenuType." AND M.Parent = ".$pParent."
+			WHERE M.MenuType =".$pMenuType." AND M.Parent = ".$pParent."  AND M.IsVisible = 1
 			ORDER BY M.Order";
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
 	$items = array();

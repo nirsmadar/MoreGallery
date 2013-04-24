@@ -1,8 +1,9 @@
 <?php
 function GenSampleLetters() 
 {
-	$que = "SELECT L.Id, L.Order, L.Title, L.Text, L.IsVisible
+	$que = "SELECT L.Id, L.Order, L.Title, L.Text
 			FROM Letter L
+			WHERE  L.IsVisible = 1
 			ORDER BY L.Order
 			LIMIT 3";
 	
@@ -17,8 +18,7 @@ function GenSampleLetters()
 	$i = 0;
 	$flowersIndex = 0;
 	foreach ($letters as $letter) 
-	{ 
-		if ($letter['IsVisible'] == 0) continue; 
+	{
 		$i++;
 		if ($i >= 5) $flowersIndex = 1;
 		else $flowersIndex++;
@@ -97,8 +97,9 @@ function GenSampleLetters()
 
 function GenLetters()
 {
-	$que = "SELECT L.Id, L.Order, L.Title, L.Text, L.IsVisible
+	$que = "SELECT L.Id, L.Order, L.Title, L.Text
 			FROM Letter L
+			WHERE  L.IsVisible = 1
 			ORDER BY L.Order";
 	
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
@@ -113,7 +114,6 @@ function GenLetters()
 	$flowersIndex = 0;
 	foreach ($letters as $letter) 
 	{
-		if ($letter['IsVisible'] == 0) continue; 
 		$i++;
 		if ($i >= 5) $flowersIndex = 1;
 		else $flowersIndex++;	?>

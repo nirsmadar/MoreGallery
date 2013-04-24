@@ -111,8 +111,7 @@ function GenFurnitureCategories()
 	$categories = GetFurnitureCategories();
 	$i = 0;
 	foreach ($categories as $category) 
-	{ 
-		if ($category['IsVisible'] == 0) continue; 
+	{
 		$i++;	?>
 		
 		<li data-category="cat-<?php echo $category['Id'] ?>"><?php echo $category['Title'] ?></li>
@@ -127,10 +126,9 @@ function GenFurnitureCategories()
 
 function GenFurnitures()
 {
-		$que = "SELECT F.Id, F.Code, F.Order, F.Title, F.Description, F.CategoryId, 
-				F.ThumbPath, F.ThumbWidthFactor, f.ThumbHeightFactor, F.ImagePath, F.FadedThumbPath, F.Link, F.IsVisible,
-				F.IsSold
+		$que = "SELECT *
 				FROM Furniture F
+				WHERE  F.IsVisible = 1
 				ORDER BY F.Order";
 			
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
@@ -140,14 +138,20 @@ function GenFurnitures()
 	}
 
 	foreach ($furnitures as $furniture)
-	{ 
-		if ($furniture['IsVisible'] == 0) continue; 
+	{
+        $isUrl = isset($furniture['Url'])
 		?>
 		
 		<div class="cell<?php echo $furniture['ThumbWidthFactor']?>x<?php echo $furniture['ThumbHeightFactor']?> <?php echo "cat-".$furniture['CategoryId']?> catall">
 			<div class="thumbnails" data-mainthumb="upload/furnitures/<?php echo $furniture['ThumbPath']?>" data-bwthumb="upload/furnitures/<?php echo $furniture['FadedThumbPath']?>"></div>
 			<div class="caption"><?php echo $furniture['Title']?></div>
-			<a href="<?php echo $furniture['Link']?>" class="blog-link"></a>
+            <?php
+            if ($isUrl)
+            {   ?>
+                <a href="<?php echo $furniture['Url']?>" class="blog-link"></a>
+            <?php
+            }
+            ?>
 			<div class="entry-info">
 				<div class="media" data-src="upload/furnitures/<?php echo $furniture['ImagePath']?>"></div>
 				<div class="entry-title"><?php echo $furniture['Title']?></div>

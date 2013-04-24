@@ -11,8 +11,9 @@ function GetShortString($pLongString, $pNewLength)
 
 function GetFurnitureCategories($pFirstCategory = 0, $pLastCategory = 0)
 {
-	$que = "SELECT F.Id, F.Order, F.Title, F.SubTitle, F.Text, F.Image, F.IsVisible, F.TitleBgColor, F.Url
+	$que = "SELECT F.Id, F.Order, F.Title, F.SubTitle, F.Text, F.Image, F.TitleBgColor, F.Url
 			FROM FurnitureCategory F
+			WHERE F.IsVisible = 1
 			ORDER BY F.Order";
 	$que .= $pFirstCategory > 0 && $pLastCategory > 0 ? " LIMIT ".($pFirstCategory - 1).", ".$pLastCategory."" : "";
 			
@@ -58,4 +59,15 @@ function GenContent($pSeoData)
 
     include('Main.php');
     return;
+}
+
+function GetPageTypeId($pPageTypeName)
+{
+    if (!isset($pPageTypeName)) return;
+    $que = "SELECT P.Id
+            FROM PageType P
+            WHERE P.Name = '".$pPageTypeName."'";
+    $sql = mysql_query($que) or die('Query failure:' .mysql_error());
+    list($pageTypeId) = mysql_fetch_row($sql);
+    return $pageTypeId;
 }

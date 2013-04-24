@@ -24,9 +24,10 @@ $numOfArticles = 0;
 function GenArticles()
 {
 	$maxNumOfArticles = 4;
-	$que = "SELECT A.Id, A.Order, A.Title, A.ShortDescription, A.IsVisible, A.PublishedDate, A.Image
-			FROM Article A
-			ORDER BY A.PublishedDate DESC, A.Order
+	$que = "SELECT P.Id, P.Order, P.Title, P.ShortDescription, P.PublishedDate, P.Image
+			FROM Page P
+			WHERE P.PageType = 1 AND P.IsVisible = 1
+			ORDER BY P.PublishedDate DESC, P.Order
 			LIMIT ".$maxNumOfArticles."";
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
 	while ($row = mysql_fetch_assoc($sql))
@@ -36,8 +37,7 @@ function GenArticles()
 	
 	$numOfArticles = count($articles);
 	$i = 0;
-	foreach ($articles as $article) { 
-		if ($article['IsVisible'] == 0) continue; 
+	foreach ($articles as $article) {
 		$i++;
         $title = GetShortString($article['Title'], 36);
         $text = GetShortString($article['ShortDescription'], 400); ?>
@@ -141,8 +141,7 @@ function GenFurnitureCategories($pFirstCategory, $pLastCategory)
 	
 	$i = 0;
 	foreach ($categories as $category) 
-	{ 
-		if ($category['IsVisible'] == 0) continue; 
+	{
 		$i++; 
 		$imagePath = "upload/furnitureCategories/".$category['Image']	?>
 		

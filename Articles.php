@@ -5,9 +5,10 @@
 <?php
 function GenArticles()
 {
-	$que = "SELECT A.Id, A.Order, A.Title, A.ShortDescription, A.IsVisible, A.PublishedDate, A.Image
-			FROM Article A
-			ORDER BY A.PublishedDate DESC, A.Order";
+	$que = "SELECT P.Id, P.Order, P.Title, P.ShortDescription, P.PublishedDate, P.Image
+			FROM Page P
+			WHERE P.PageType = ".GetPageTypeId("Article")." AND P.IsVisible = 1
+			ORDER BY P.PublishedDate DESC, P.Order";
 			
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
 	while ($row = mysql_fetch_assoc($sql))
@@ -18,8 +19,7 @@ function GenArticles()
 	$numOfArticles = count($articles);
 	$i = 0;
 	foreach ($articles as $article)
-	{	
-		if ($article['IsVisible'] == 0) continue; 
+	{
 		$i++;
         $title = GetShortString($article['Title'], 36);
         $text = GetShortString($article['ShortDescription'], 160);
@@ -32,7 +32,7 @@ function GenArticles()
 		}	?>
 		<article style="border-bottom:1px solid #cccccc;width:340px;height:210px;float:<?php echo $float.";" ?>">
 			<a href="" >
-				<img src="images/articles/<?php echo $article['Image']?>" style="float:right;" />
+				<img src="upload/articles/<?php echo $article['Image']?>" style="float:right;" />
 				<div style="float:left;width:200px;">
 					<h1><?php echo $title ?></h1>
 					<h4 class='articleDate'>פורסם ב-<?php echo DateTimeToDate($article['PublishedDate'])?></h4>
