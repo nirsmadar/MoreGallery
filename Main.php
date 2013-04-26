@@ -55,7 +55,7 @@ function GenArticles()
 						</div>
 					</div>
 				</div>
-				<img class='articleImg' src='images/articles/<?php echo $article['Image']?>'/>
+				<img class='articleImg' src='upload/articles/<?php echo $article['Image']?>'/>
 			</div>
 		</article>
 	<?php

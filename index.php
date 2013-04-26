@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <?php
 include "Constants.php";
 include "DataBase.php";
@@ -7,13 +6,14 @@ include "UiFunctions.php";
 
 $pageTitle = isset($_GET['PageTitle']) ? $_GET['PageTitle'] : null;
 $seoData = array();
-if (isset($pageTitle)) $seoData = GetSeoData($pageTitle );
-
+if (isset($pageTitle)) $seoData = GetSeoData($pageTitle);
+$title = isset($seoData['Title']) ? "מור גלרי | ".$seoData['Title'] : "מור גלרי | More Gallery";
 ?>
-
+<!DOCTYPE HTML>
 <html>
 <head>
-	<title>מור גלרי | More Gallery</title>
+    <base href="<?php echo BASE_URL ?>/">
+	<title><?php echo $title ?></title>
 	<link rel="stylesheet" href="style.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -67,7 +67,7 @@ if (isset($pageTitle)) $seoData = GetSeoData($pageTitle );
 				<a href='mailto:moregllr@gmail.com' class='regularColorLink'><span class='english'>moregllr@gmail.com</span></a>
 			</div>
 			<nav id='btmMenu'>
-				<a id="backToTop" href=""#headerCon">חזרה למעלה</a>
+				<a id="backToTop" href="#headerCon">חזרה למעלה</a>
 				|
 				<a href='SiteMap.php'>מפת האתר</a>
 				|

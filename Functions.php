@@ -29,12 +29,18 @@ function GetFurnitureCategories($pFirstCategory = 0, $pLastCategory = 0)
 function GetSeoData($pPageTitle)
 {
     if (!isset($pPageTitle)) return;
-    $que = "SELECT M.PageId as PageId, M.Url as OuterUrl, P.IsStatic, P.Url as InnerUrl
-			FROM MenuItem M LEFT JOIN Page P ON (M.PageId = P.Id)
-			WHERE M.Title = '".$pPageTitle."'";
+
+    $tmp = explode("/", $pPageTitle);
+    if (count($tmp) > 1)
+    {
+        $pPageTitle = $tmp[count($tmp) - 1];
+    }
+
+    $que = "SELECT *
+			FROM Page P
+			WHERE P.Title = '".$pPageTitle."'";
     $sql = mysql_query($que) or die('Query failure:' .mysql_error());
-    $seoData = mysql_fetch_assoc($sql);
-    return $seoData;
+    return mysql_fetch_assoc($sql);
 }
 
 function GenContent($pSeoData)
@@ -48,11 +54,14 @@ function GenContent($pSeoData)
     {
         if ($pSeoData['IsStatic'])
         {
+            global $PAGE_ID;
+            $PAGE_ID = $pSeoData['Id'];
+            include('StaticPage.php');
             return;
         }
-        else if (isset($pSeoData['InnerUrl']))
+        else if (isset($pSeoData['Url']))
         {
-            include($pSeoData['InnerUrl']);
+            include($pSeoData['Url']);
             return;
         }
     }
