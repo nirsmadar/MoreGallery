@@ -6,7 +6,13 @@ function DateTimeToDate($pDateTime)
 
 function GetShortString($pLongString, $pNewLength)
 {
-    return (strlen($pLongString) >= $pNewLength) ? mb_substr($pLongString, 0, $pNewLength, "utf-8")."..." : $pLongString;
+    $shortString = $pLongString;
+    if (strlen($pLongString) > $pNewLength)
+    {
+        $shortString = mb_strcut($shortString, 0, $pNewLength - 3, "UTF-8")."...";
+    }
+
+    return $shortString;
 }
 
 function GetFurnitureCategories($pFirstCategory = 0, $pLastCategory = 0)

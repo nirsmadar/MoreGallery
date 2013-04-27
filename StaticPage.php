@@ -9,10 +9,10 @@ $page = GetPage($PAGE_ID);
     {
         case 1:
             GenArticle($page);
-            return;
+            break;
         default:
             echo $page['Html'];
-            return;
+            break;
     }
     ?>
 </div>
@@ -33,7 +33,8 @@ function GetPage($pPageId)
 function GenArticle($pPage)
 {   ?>
     <h1><?php echo $pPage['Title']?></h1>
-    <h4 class='articleDate'>פורסם ב-<?php echo DateTimeToDate($pPage['PublishedDate'])?></h4>
+    <div>פורסם ב-<?php echo DateTimeToDate($pPage['PublishedDate'])?></div>
+    <h4 style="margin-top: 20px"><?php echo $pPage['ShortDescription']?></h4>
     <div style="margin-top: 20px"><?php echo $pPage['Html']?></div>
     <?php
 }

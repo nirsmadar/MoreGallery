@@ -21,8 +21,8 @@ function GenArticles()
 	foreach ($articles as $article)
 	{
 		$i++;
-        $title = GetShortString($article['Title'], 36);
-        $text = GetShortString($article['ShortDescription'], 160);
+        $title = GetShortString($article['Title'], 100);
+        $text = GetShortString($article['ShortDescription'], 300);
 		$float = ($i %2 == 0) ? "left" : "right";
 	
 		if ($i % 2 != 0)
@@ -32,7 +32,7 @@ function GenArticles()
 		}	?>
 		<article style="border-bottom:1px solid #cccccc;width:340px;height:210px;float:<?php echo $float.";" ?>">
 			<a href="<?php echo ARTICLES_FOLDER."/".$article['Title'] ?>" >
-				<img src="upload/articles/<?php echo $article['Image']?>" style="float:right;" />
+				<img src="upload/articles/<?php echo $article['Image']?>" style="float:right;border:1px solid #aca49a;" />
 				<div style="float:left;width:200px;">
 					<h1><?php echo $title ?></h1>
 					<h4 class='articleDate'>פורסם ב-<?php echo DateTimeToDate($article['PublishedDate'])?></h4>

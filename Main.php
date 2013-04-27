@@ -150,8 +150,9 @@ function GenFurnitureCategories($pFirstCategory, $pLastCategory)
 				<div class="categoryTitle" style="background-color:#<?php echo $category['TitleBgColor']?>;"><?php echo $category['Title']?></div>
 				<?php
 				if(file_exists($imagePath))
-				{
-					echo "<img class='categoryImg' src='".$imagePath."' title='".$category['Title']."' alt='".$category['Title']."' />";
+				{   ?>
+					 <img class="categoryImg" src="<?php echo $imagePath?>" title="<?php echo $category['Title']?>" alt="<?php echo $category['Title']?>" />
+                <?php
 				}	
 				else
 				{	
