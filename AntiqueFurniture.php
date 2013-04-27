@@ -70,7 +70,7 @@
 				cellWidth:176,						<!-- The Width of one CELL in PX-->
 				cellHeight:176,						<!-- The Height of one CELL in PX-->
 				cellPadding:10,						<!-- Spaces Between the CELLS -->
-				entryProPage:12,						<!-- The Max. Amount of the Entries per Page, Rest made by Pagination -->
+				entryProPage:15,						<!-- The Max. Amount of the Entries per Page, Rest made by Pagination -->
 
 				<!-- CAPTION SETTING -->
 				captionOpacity:85,
@@ -126,26 +126,34 @@ function GenFurnitureCategories()
 
 function GenFurnitures()
 {
-		$que = "SELECT *
-				FROM Furniture F
+		$que = "SELECT F.Id, F.Url, F.ThumbWidthFactor, F.ThumbHeightFactor, F.CategoryId, F.ThumbPath, F.FadedThumbPath,
+                       F.Title, F.Description, F.IsSold, F.IntOrder as FurnitureOrder, C.IntOrder as CategoryOrder,
+                       F.ImagePath, F.CategoryId, C.Name as CategoryName, C.Title as CategoryTitle
+				FROM Furniture F INNER JOIN FurnitureCategory C ON (F.CategoryId = C.Id)
 				WHERE  F.IsVisible = 1
-				ORDER BY F.Order";
+				ORDER BY C.IntOrder ASC, F.IntOrder DESC";
 			
-	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
+	$sql = mysql_query($que) or die('Query failure:' .mysql_error());
+    $r = 0;
 	while ($row = mysql_fetch_assoc($sql))
 	{
-		$furnitures[$row['Order']] = $row;
+		$furnitures[$row['Id']] = $row;
 	}
 
 	foreach ($furnitures as $furniture)
 	{
-        $isUrl = isset($furniture['Url'])
-		?>
+        $isUrl = isset($furniture['Url']);
+		$basePath = "upload/furnitures/".$furniture['CategoryName']."/";
+        ?>
 		
 		<div class="cell<?php echo $furniture['ThumbWidthFactor']?>x<?php echo $furniture['ThumbHeightFactor']?> <?php echo "cat-".$furniture['CategoryId']?> catall">
-			<div class="thumbnails" data-mainthumb="upload/furnitures/<?php echo $furniture['ThumbPath']?>" data-bwthumb="upload/furnitures/<?php echo $furniture['FadedThumbPath']?>"></div>
-			<div class="caption"><?php echo $furniture['Title']?></div>
+			<div class="thumbnails" data-mainthumb="<?php echo $basePath.$furniture['ThumbPath']?>" data-bwthumb="<?php echo $basePath.$furniture['ThumbPath']?>"></div>
             <?php
+            if (strlen($furniture['Title']) > 0)
+            {   ?>
+                <div class="caption"><?php echo $furniture['Title']?></div>
+                <?php
+            }
             if ($isUrl)
             {   ?>
                 <a href="<?php echo $furniture['Url']?>" class="blog-link"></a>
@@ -153,7 +161,7 @@ function GenFurnitures()
             }
             ?>
 			<div class="entry-info">
-				<div class="media" data-src="upload/furnitures/<?php echo $furniture['ImagePath']?>"></div>
+				<div class="media" data-src="<?php echo $basePath.$furniture['ImagePath']?>"></div>
 				<div class="entry-title"><?php echo $furniture['Title']?></div>
 				<div class="entry-description"><?php echo $furniture['Description']?></div>
 				<?php 
