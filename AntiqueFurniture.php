@@ -126,7 +126,7 @@ function GenFurnitureCategories()
 
 function GenFurnitures()
 {
-		$que = "SELECT F.Id, F.Url, F.ThumbWidthFactor, F.ThumbHeightFactor, F.CategoryId, F.ThumbPath, F.FadedThumbPath,
+		$que = "SELECT F.Id, F.Code, F.Url, F.ThumbWidthFactor, F.ThumbHeightFactor, F.CategoryId, F.ThumbPath, F.FadedThumbPath,
                        F.Title, F.Description, F.IsSold, F.IntOrder as FurnitureOrder, C.IntOrder as CategoryOrder,
                        F.ImagePath, F.CategoryId, C.Name as CategoryName, C.Title as CategoryTitle
 				FROM Furniture F INNER JOIN FurnitureCategory C ON (F.CategoryId = C.Id)
@@ -144,6 +144,8 @@ function GenFurnitures()
 	{
         $isUrl = isset($furniture['Url']);
 		$basePath = "upload/furnitures/".$furniture['CategoryName']."/";
+        $code = (!is_null($furniture['Code'])) ? "קוד: ".$furniture['Code'] : "";
+        $sold = ($furniture['IsSold'] == 1) ?"הפריט נמכר" : "הפריט קיים במלאי";;
         ?>
 		
 		<div class="cell<?php echo $furniture['ThumbWidthFactor']?>x<?php echo $furniture['ThumbHeightFactor']?> <?php echo "cat-".$furniture['CategoryId']?> catall">
@@ -158,21 +160,14 @@ function GenFurnitures()
             {   ?>
                 <a href="<?php echo $furniture['Url']?>" class="blog-link"></a>
             <?php
-            }
-            ?>
+            }   ?>
 			<div class="entry-info">
 				<div class="media" data-src="<?php echo $basePath.$furniture['ImagePath']?>"></div>
-				<div class="entry-title"><?php echo $furniture['Title']?></div>
-				<div class="entry-description"><?php echo $furniture['Description']?></div>
-				<?php 
-				if ($furniture['IsSold'] == 1)
-				{	?>
-					<div class="entry-sold">הפריט נמכר</div>
-				<?php
-				}	?>
+				<div class="entry-title">קטגוריה: <?php echo $furniture['CategoryTitle']?></div>
+                <div class="entry-description"><?php echo $code?></div>
+                <div class="entry-sold"><?php echo $sold?></div>
 			</div>
 		</div>
-		
 		<?php
 	}
 }
