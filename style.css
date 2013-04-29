@@ -683,3 +683,52 @@ header {
 #antiqueFurniture a {
     border:none;
 }
+
+/*Letters.php*/
+#lettersPage #lettersSecondColumn, #lettersThirdColumn, #lettersFirstColumn {
+    width: 260px;
+    float: right;
+}
+
+#lettersPage #lettersSecondColumn, #lettersThirdColumn {
+    margin-right: 60px
+}
+
+#lettersPage .letterCon {
+    float:right;
+    margin-top: 20px;
+}
+
+#lettersPage .letterImg {
+    float: right;
+}
+
+#lettersPage .letterSender {
+    float: left;
+    margin: 20px 0 0 25px;
+}
+
+#lettersPage .letterTop {
+    background: url('images/letters/letterTop.png') no-repeat;
+    height:18px;
+    width: 250px;
+}
+
+#lettersPage .letterMdl {
+    background: url('images/letters/letterMdl.png');
+}
+
+#lettersPage .letterFooter {
+    height: 60px;
+}
+
+#lettersPage .letterBtm {
+    background: url('images/letters/letterBtm.png') no-repeat;
+    height:18px;
+    width: 250px;
+}
+
+#lettersPage .letter {
+    width: 220px;
+    margin-right: 15px;
+}

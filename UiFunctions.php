@@ -1,16 +1,16 @@
 <?php
 function GenSampleLetters() 
 {
-	$que = "SELECT L.Id, L.Order, L.Title, L.Text
+	$que = "SELECT L.Id, L.IntOrder, L.Title, L.Text
 			FROM Letter L
 			WHERE  L.IsVisible = 1
-			ORDER BY L.Order
+			ORDER BY L.IntOrder
 			LIMIT 3";
 	
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
 	while ($row = mysql_fetch_assoc($sql))
 	{
-		$letters[$row['Order']] = $row;
+		$letters[$row['Id']] = $row;
 	}	?>
 	
 	<div id="sampleLettersCon">
@@ -22,14 +22,14 @@ function GenSampleLetters()
 		$i++;
 		if ($i >= 5) $flowersIndex = 1;
 		else $flowersIndex++;
-		$text = GetShortString($letter['Text'], 100) ?>
+		$text = GetShortString($letter['Text'], 190) ?>
 		
 		<section class='letterCon' <?php if ($i == 1) echo "style='margin-right:0;'"?>>
 			<div class='letter'>
 				<h3 class='letterTitle'><?php echo $letter['Title']?></h3>
 				<p class='letterText'><?php echo $text?></p>
 				<div class='letterBtm'>
-					<a class='lettersLink' href='letters.php'>המשך>></a>
+					<a class='lettersLink' href="<?php echo LETTERS_HE."#letter-".$letter['Id']?>">המשך>></a>
 					<img class='letterImg' src='images/letters/<?php echo $flowersIndex?>.png'/>
 					<div class='clear'></div>
 				</div>
@@ -97,41 +97,63 @@ function GenSampleLetters()
 
 function GenLetters()
 {
-	$que = "SELECT L.Id, L.Order, L.Title, L.Text
+	$que = "SELECT L.Id, L.IntOrder, L.Title, L.Text, L.SenderName
 			FROM Letter L
 			WHERE  L.IsVisible = 1
-			ORDER BY L.Order";
+			ORDER BY L.IntOrder
+			";
 	
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
 	while ($row = mysql_fetch_assoc($sql))
 	{
-		$letters[$row['Order']] = $row;
-	}	?>
-	
-	<div id="lettersCon">
-	<?php
-	$i = 0;
-	$flowersIndex = 0;
-	foreach ($letters as $letter) 
-	{
-		$i++;
-		if ($i >= 5) $flowersIndex = 1;
-		else $flowersIndex++;	?>
-		
-		<section class='letterCon' <?php if ($i == 1 || (($i - 1) % 4 == 0)) echo "style='margin-right:0;'"?>>
-			<div class='letter'>
-				<h3 class='letterTitle'><?php echo $letter['Title']?></h3>
-				<p class='letterText'><?php echo $letter['Text']?></p>
-				<div class='letterBtm'>
-					<a class='lettersLink' href='letters.php'><?php echo $i?></a>
-					<img class='letterImg' src='images/letters/<?php echo $flowersIndex?>.png'/>
-					<div class='clear'></div>
-				</div>
-			</div>
-		</section>
+		$letters[$row['Id']] = $row;
+	}
+
+    $numOfColumns = 3;
+    ?>
+    <div id="lettersFirstColumn">
+        <?php GenLettersInColumn($letters, 1, $numOfColumns) ?>
+    </div>
+    <div id="lettersSecondColumn">
+        <?php GenLettersInColumn($letters, 2, $numOfColumns) ?>
+    </div>
+    <div id="lettersThirdColumn">
+        <?php GenLettersInColumn($letters, 3, $numOfColumns) ?>
+    </div>
+    <div class="clear"></div>
 <?php
-	}	?>
-	</div>
+}
+
+function GenLettersInColumn($pLetters, $pColumnIndex, $pNumOfColumns)
+{
+    $flowersIndex = $pColumnIndex;
+    $firstLetter = ceil(($pColumnIndex - 1) / $pNumOfColumns * count($pLetters)) + 1;
+    $lastLetter = ceil(($pColumnIndex) / $pNumOfColumns * count($pLetters));
+
+    //echo count($pLetters)."<br/>".$firstLetter."<br/>".$lastLetter;
+    for ($i = $firstLetter; $i <= $lastLetter; $i++)
+    {
+        if ($flowersIndex > 3) $flowersIndex = 1;
+        else $flowersIndex++;
+        $letter = $pLetters[$i] ?>
+
+        <section class="letterCon" id="letter-<?php echo $letter['Id']?>" <?php if ($i == $firstLetter) echo "style='margin:0px;'"?>>
+            <div class="letterTop"></div>
+            <div class="letterMdl" ">
+                <div class="letter">
+                    <h3 class="letterTitle"><?php echo $letter['Title']?></h3>
+                    <p class="letterText"><?php echo $letter['Text']?></p>
+                    <div class="letterFooter">
+                        <img class="letterImg" src='images/letters/<?php echo $flowersIndex?>.png'/>
+                        <h4 class="letterSender"><?php echo $letter['SenderName']?></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="letterBtm"></div>
+        </section>
+    <?php
+    }	?>
 <?php
 }
 

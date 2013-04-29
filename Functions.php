@@ -55,7 +55,6 @@ function InsertFurnitures()
     }
 }
 
-
 function DateTimeToDate($pDateTime)
 {
 	return date("d/m/Y", strtotime($pDateTime));

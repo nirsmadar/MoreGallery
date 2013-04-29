@@ -35,8 +35,8 @@ $title = isset($seoData['Title']) ? "מור גלרי | ".$seoData['Title'] : "מ
 				</div>
 				<div id='topBand_left'>
 					<div id='contactDetails'>
-						<a href='Contact.php'>דרך חיפה 27, קרית אתא</a>
-						<a href='Contact.php'><br/>052-3766731 | 04-8725035</a>
+						<a href="<?php echo CONTACT_HE?>">דרך חיפה 27, קרית אתא</a>
+						<a href="<?php echo CONTACT_HE?>"><br/>052-3766731 | 04-8725035</a>
 						<br/><a href='mailto:moregllr@gmail.com' class='regularColorLink'><span class='english'>moregllr@gmail.com</span></a>
 					</div>
 					<nav id='topMenuCon'>
@@ -56,7 +56,7 @@ $title = isset($seoData['Title']) ? "מור גלרי | ".$seoData['Title'] : "מ
 		<div id='footer'>
 			<div id='contactDetailsBtm'>
 				נשמח לשמור איתכם על קשר:&nbsp
-				<a href='Contact.php'>
+				<a href="<?php echo CONTACT_HE?>">
 					חנות: 04-8725035
 					|
 					שושי: 052-3766731

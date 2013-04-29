@@ -31,7 +31,7 @@ function GenArticles()
 		<?php
 		}	?>
 		<article style="border-bottom:1px solid #cccccc;width:340px;height:210px;float:<?php echo $float.";" ?>">
-			<a href="<?php echo ARTICLES_FOLDER."/".$article['Title'] ?>" >
+			<a href="<?php echo ARTICLES_HE."/".$article['Title'] ?>">
 				<img src="upload/articles/<?php echo $article['Image']?>" style="float:right;border:1px solid #aca49a;" />
 				<div style="float:left;width:200px;">
 					<h1><?php echo $title ?></h1>

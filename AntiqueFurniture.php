@@ -84,13 +84,13 @@
 				showGoogle:"no",					<!-- Show The Social Buttons ...-->
 				showFB:"no",
 				showTwitter:"no",
-				urlDivider:"?",						<!-- What is the Divider in the Url to add the Variables, Filter and Image ID . Impotant for WordPress i.e. Social will share this link with this divider -->
+				urlDivider:"?",						<!-- What is the Divider in the Url to add the Variables, Filter and Image ID . Important for WordPress i.e. Social will share this link with this divider -->
 
 				showEmail:"no",							<!-- ADD EMAIL TO LINK ALSO TO THE LIGHTBOX  -->
 				emailLinkText:"Email to Friend",
 				emailBody:"mailto:email@echoecho.com?body=I found some great File here #url",	<!-- The #url will be replaced with the url of the image -->
 				emailUrlCustomPrefix:"http://www.themepunch.com/",								<!-- Use this if you wish a Custom Prefix to Link Path -->
-				emailUrlCustomSuffix:"?ref=...",												<!-- Use This if you wish to use a Custtom Suffix for Link Path -->
+				emailUrlCustomSuffix:"?ref=...",												<!-- Use This if you wish to use a Custom Suffix for Link Path -->
 
 
 				<!-- BACKGROUND -->
