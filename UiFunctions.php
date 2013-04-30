@@ -11,7 +11,9 @@ function GenSampleLetters()
 	while ($row = mysql_fetch_assoc($sql))
 	{
 		$letters[$row['Id']] = $row;
-	}	?>
+	}
+    if (!isset($letters) || count($letters) == 0) return;
+    ?>
 	
 	<div id="sampleLettersCon">
 	<?php
@@ -36,81 +38,50 @@ function GenSampleLetters()
 			</div>
 		</section>
 	<?php 
-	}	?>
-		
-        <div id='addLetterCon' onclick="ShowDialog()">
-            <div id='addLetter'>
+	}   ?>
+
+        <div id="addLetterCon" onclick="ShowDialog()">
+            <div id="addLetter">
                 <p>
-                ביקרתם בחנות?
-                <br/>נהנים לגלוש באתר?
+                    ביקרתם בחנות?
+                    <br/>נהנים לגלוש באתר?
                 </p>
-                <h2 class='letterTitle'>לחצו להוספת מכתב אישי!</h2>
+                <h2 class="letterTitle">לחצו להוספת מכתב אישי!</h2>
             </div>
         </div>
-
-        <div id="dialogCon">
-            <div id="addLetterForm" class="dialog">
-                <div onclick=CloseDialog() id="closeButton"></div>
-                <h2>כתבו לנו</h2>
-                <div class="">
-                    <div style="float:right;">
-                        <div>שם</div>
-                        <input class="input2" type="text"/>
-                    </div>
-                    <div class="clear">&nbsp;</div>
-
-                    <div class="formElementCon">כתובת מייל</div>
-                    <input type="text" class="input2" style="text-align:left"/>
-
-                    <div class="formElementCon">כותרת</div>
-                    <input type="text" class="input2"/>
-
-                    <div class="formElementCon">תוכן ההודעה</div>
-                    <textarea class="input2" style="height:150px"></textarea>
-
-                    <div class="formElementCon">
-                        <input type="submit" value="שליחה"/>
-                    </div>
-                    <div class="clear">&nbsp;</div>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            function CloseDialog()
-            {
-                $("#dialogCon").cssFadeOut(500, function()
-                {
-                    this.css("display", "none");
-                });
-            }
-            function ShowDialog()
-            {
-                $("#dialogCon").cssFadeIn(500, function()
-                {
-                    this.css("display", "block");
-                });
-            }
-        </script>
+    <?php
+    GenAddLetterForm();
+    ?>
 	</div>
 <?php
 }
 
 function GenLetters()
 {
+    GenAddLetterForm();
+
 	$que = "SELECT L.Id, L.IntOrder, L.Title, L.Text, L.SenderName
 			FROM Letter L
 			WHERE  L.IsVisible = 1
-			ORDER BY L.IntOrder
-			";
+			ORDER BY L.IntOrder";
 	
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
 	while ($row = mysql_fetch_assoc($sql))
 	{
 		$letters[$row['Id']] = $row;
 	}
+    ?>
+    <div id="addLetterCon">
+        <div style="position:relative;width:105px;float:left">
+            <input type="submit" onclick="ShowDialog()" value="<?php echo "לחצו"."\n"."להוספת"."\n"."מכתב"?>"/>
+        </div>
+    </div>
 
+    <?php
+    if (!isset($letters) || count($letters) == 0) return;
     $numOfColumns = 3;
     ?>
+    <div class="clear"></div>
     <div id="lettersFirstColumn">
         <?php GenLettersInColumn($letters, 1, $numOfColumns) ?>
     </div>
@@ -154,6 +125,54 @@ function GenLettersInColumn($pLetters, $pColumnIndex, $pNumOfColumns)
         </section>
     <?php
     }	?>
+<?php
+}
+
+function GenAddLetterForm()
+{   ?>
+    <div id="dialogCon">
+        <div id="addLetterForm" class="dialog">
+            <div onclick=CloseDialog() id="closeButton"></div>
+            <h2>כתבו לנו</h2>
+            <div class="">
+                <div style="float:right;">
+                    <div>שם</div>
+                    <input class="input2" type="text"/>
+                </div>
+                <div class="clear">&nbsp;</div>
+
+                <div class="formElementCon">כתובת מייל</div>
+                <input type="text" class="input2" style="text-align:left"/>
+
+                <div class="formElementCon">כותרת</div>
+                <input type="text" class="input2"/>
+
+                <div class="formElementCon">תוכן ההודעה</div>
+                <textarea class="input2" style="height:150px"></textarea>
+
+                <div class="formElementCon">
+                    <input type="submit" value="שליחה"/>
+                </div>
+                <div class="clear">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function CloseDialog()
+        {
+            $("#dialogCon").cssFadeOut(500, function()
+            {
+                this.css("display", "none");
+            });
+        }
+        function ShowDialog()
+        {
+            $("#dialogCon").cssFadeIn(500, function()
+            {
+                this.css("display", "block");
+            });
+        }
+    </script>
 <?php
 }
 

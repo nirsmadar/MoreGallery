@@ -89,6 +89,7 @@ input[type="submit"] {
     font-family:'Carmela';
     padding:3px 10px;
     text-decoration:none;
+    cursor: pointer;
 }
 
 input[type="submit"]:hover {
@@ -215,7 +216,8 @@ header {
 }
 
 #topMenu div > a:link {
-    color:#feecc1;
+    color:#fff;
+    /*color:#feecc1;*/
     margin:0 7.5px;
     padding:7px 15px 0px 15px;
     border-top-left-radius:5px 5px;
@@ -315,6 +317,7 @@ header {
 
 #content {
     margin:15px;
+    position: relative;
 }
 
 /*Footer*/
@@ -691,7 +694,7 @@ header {
 }
 
 #lettersPage #lettersSecondColumn, #lettersThirdColumn {
-    margin-right: 60px
+    margin-right: 40px
 }
 
 #lettersPage .letterCon {
@@ -731,4 +734,28 @@ header {
 #lettersPage .letter {
     width: 220px;
     margin-right: 15px;
+}
+
+#lettersPage #addLetterCon {
+    position:absolute;
+    width:100%;
+    float:left;
+    z-index: 9999;
+}
+
+#lettersPage #addLetterCon input[type="submit"] {
+    position:fixed;
+    width:125px;
+    height:105px;
+    margin: 4px -4px 0 0;
+    border-radius: 0 10px 10px 0;
+    border:2px ridge #c4bfb1;
+    border-left: 0px;
+    font-size: 18px;
+    text-shadow: #454545 0.1em 0.1em 0.2em;
+}
+
+#lettersPage #addLetterCon input[type="submit"]:active {
+    top:auto;
+    font-size: 16px;
 }
