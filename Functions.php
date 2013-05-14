@@ -142,3 +142,8 @@ function GetPageTypeId($pPageTypeName)
     list($pageTypeId) = mysql_fetch_row($sql);
     return $pageTypeId;
 }
+
+function CheckIfMailIsValid($pMail)
+{
+    return filter_var($pMail, FILTER_VALIDATE_EMAIL);
+}

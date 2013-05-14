@@ -28,34 +28,7 @@
 		<div class="clear">&nbsp;</div>
 	</div>
 	<div id="aboutBtm">
-		<div id="writeToUs">
-			<h2>כתבו לנו</h2>
-			<div class="formElementCon">
-				<div style="float:right;">
-					<div>שם פרטי</div>
-					<input type="text"/>
-				</div>
-				<div style="float:left;">
-					<div>שם משפחה</div>
-					<input type="text"/>
-				</div>
-				<div class="clear">&nbsp;</div>
-				
-				<div class="formElementCon">כתובת מייל</div>
-				<input type="text" class="input2" style="text-align:left"/>
-				
-				<div class="formElementCon">כותרת</div>
-				<input type="text" class="input2"/>
-				
-				<div class="formElementCon">תוכן ההודעה</div>
-				<textarea class="input2" style="height:150px"></textarea>
-				
-				<div class="formElementCon">
-					<input type="submit" value="שליחה"/>
-				</div>
-			</div>
-		</div>
-		<div style="float:right;margin-right:60px;">
+		<div id="contactUs">
 			<h2>צרו עימנו קשר</h2>
 			<div>
 				<img src="images/icons/telephone.png" style="float:right;"/>
@@ -72,22 +45,24 @@
 				<div style="float:right;margin-right:20px;margin-top:12px;">רותי: 050-3989909</div>
 				<div class="clear">&nbsp;</div>
 			</div>
-			<div>
-				<img src="images/icons/mail.png" style="float:right;"/>
-				<a href="mailto:moregllr@gmail.com" style="float:right;margin-right:20px;margin-top:9px;font-family:'Segoe UI';">moregllr@gmail.com</a>
-				<div class="clear">&nbsp;</div>
-			</div>
-			<div>
-				<img src="images/icons/facebook.png" style="float:right;"/>
-				<a href="http://www.facebook.com/moregllr?fref=ts" style="float:right;margin-right:20px;margin-top:12px;">אנחנו נמצאים גם בפייסבוק</a>
-				<div class="clear">&nbsp;</div>
-			</div>
-			<div>
-				<img src="images/icons/yad2.png" style="float:right;"/>
-				<a href="http://siteyad2.yad2.co.il/%D7%9E%D7%95%D7%A8%20%D7%92%D7%9C%D7%A8%D7%99?Order=info&Desc=&Order=salescat&Desc=" style="float:right;margin-right:20px;margin-top:12px;">בקרו אותנו ב-יד2</a>
-				<div class="clear">&nbsp;</div>
-			</div>
 		</div>
+        <div style="margin:20px 60px 0 0; float: right;">
+            <div>
+                <img src="images/icons/mail.png" style="float:right;"/>
+                <a href="mailto:moregllr@gmail.com" style="float:right;margin-right:20px;margin-top:9px;font-family:'Segoe UI';">moregllr@gmail.com</a>
+                <div class="clear">&nbsp;</div>
+            </div>
+            <div>
+                <img src="images/icons/facebook.png" style="float:right;"/>
+                <a href="http://www.facebook.com/moregllr?fref=ts" style="float:right;margin-right:20px;margin-top:12px;">אנחנו נמצאים גם בפייסבוק</a>
+                <div class="clear">&nbsp;</div>
+            </div>
+            <div>
+                <img src="images/icons/yad2.png" style="float:right;"/>
+                <a href="http://siteyad2.yad2.co.il/%D7%9E%D7%95%D7%A8%20%D7%92%D7%9C%D7%A8%D7%99?Order=info&Desc=&Order=salescat&Desc=" style="float:right;margin-right:20px;margin-top:12px;">בקרו אותנו ב-יד2</a>
+                <div class="clear">&nbsp;</div>
+            </div>
+        </div>
 		<div style="float:right;margin-right:60px;">
 			<h2>שעות פתיחה</h2>
 			<div style="width:200px;margin-top:12px;">
@@ -105,4 +80,5 @@
 			<div style="width:250px;"><b>בכל שעה אחרת ניתן לתאם עם צוות הגלריה, ואנו נגיע בשמחה.</b></div>
 		</div>
 	</div>
+    <div class="clear">&nbsp;</div>
 </div>

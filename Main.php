@@ -24,15 +24,15 @@ $numOfArticles = 0;
 function GenArticles()
 {
 	$maxNumOfArticles = 4;
-	$que = "SELECT P.Id, P.Order, P.Title, P.ShortDescription, P.PublishedDate, P.Image
+	$que = "SELECT P.Id, P.IntOrder, P.Title, P.ShortDescription, P.PublishedDate, P.Image
 			FROM Page P
 			WHERE P.PageType = 1 AND P.IsVisible = 1
-			ORDER BY P.PublishedDate DESC, P.Order
+			ORDER BY P.PublishedDate DESC, P.IntOrder
 			LIMIT ".$maxNumOfArticles."";
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
 	while ($row = mysql_fetch_assoc($sql))
 	{
-		$articles[$row['Order']] = $row;
+		$articles[$row['Id']] = $row;
 	}
 	
 	$numOfArticles = count($articles);
@@ -144,24 +144,24 @@ function GenFurnitureCategories($pFirstCategory, $pLastCategory)
 	{
 		$i++; 
 		$imagePath = "upload/furnitureCategories/".$category['Image']	?>
-		
-		<a href="<?php echo ANTIQUE_FURNITURE_HE ?>" class="categoryLink">
-			<section class="categoryCon" <?php if($i == 1) echo "style='margin-right:0;'"; ?>>
-				<div class="categoryTitle" style="background-color:#<?php echo $category['TitleBgColor']?>;"><?php echo $category['Title']?></div>
-				<?php
-				if(file_exists($imagePath))
-				{   ?>
-					 <img class="categoryImg" src="<?php echo $imagePath?>" title="<?php echo $category['Title']?>" alt="<?php echo $category['Title']?>" />
+
+        <section class="categoryCon" <?php if($i == 1) echo "style='margin-right:0;'"; ?>>
+            <a href="<?php echo ANTIQUE_FURNITURE_HE ?>" class="categoryLink">
+                <div class="categoryTitle" style="background-color:#<?php echo $category['TitleBgColor']?>;"><?php echo $category['Title']?></div>
                 <?php
-				}	
-				else
-				{	
-					echo "<div class='defaultImg'>More Gallery</div>";
-				}	?>
-				<div class="categorySub"><?php echo $category['SubTitle']?></div>
-				<div class="categoryText"><?php echo $category['Text']?></div>
-			</section>
-		</a>
+                if(file_exists($imagePath))
+                {   ?>
+                     <img class="categoryImg" src="<?php echo $imagePath?>" title="<?php echo $category['Title']?>" alt="<?php echo $category['Title']?>" />
+                <?php
+                }
+                else
+                {
+                    echo "<div class='defaultImg'>More Gallery</div>";
+                }	?>
+                <div class="categorySub"><?php echo $category['SubTitle']?></div>
+                <div class="categoryText"><?php echo $category['Text']?></div>
+            </a>
+        </section>
 	<?php 
 	}
 }

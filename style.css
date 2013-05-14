@@ -32,12 +32,7 @@ a, a:link {
 }
 
 a:hover {
-    color:#c68607;
-    border-bottom:1px dashed #c68607;
-}
-
-a:visited {
-    color:#781a9f;
+    border-bottom:1px dashed #21201d;
 }
 
 .LinkEmphasized {
@@ -79,10 +74,15 @@ p {
     line-height:1.2;
 }
 
+textarea {
+    font-family: 'Carmela';
+    font-size: 16px;
+}
+
 input[type="submit"] {
     float:left;
     background-color:#871317;
-    border:1px solid #c9c5bc;
+    border:2px ridge #c4bfb1;
     display:inline-block;
     color:#ffffff;
     font-size:18px;
@@ -90,6 +90,8 @@ input[type="submit"] {
     padding:3px 10px;
     text-decoration:none;
     cursor: pointer;
+    height: 30px;
+    min-width: 90px;
 }
 
 input[type="submit"]:hover {
@@ -97,8 +99,7 @@ input[type="submit"]:hover {
 }
 
 input[type="submit"]:active {
-    position:relative;
-    top:1px;
+    font-size: 16px;
 }
 
 .input2 {
@@ -215,7 +216,7 @@ header {
     float:right;
 }
 
-#topMenu div > a:link {
+#topMenu div > a {
     color:#fff;
     /*color:#feecc1;*/
     margin:0 7.5px;
@@ -233,9 +234,8 @@ header {
     display:block;
 }
 
-#topMenu div > a:hover {
+#topMenu div > a:hover, a:visited:hover {
     color:#f2b949;
-    border-bottom:none;
 }
 
 .facebookMenuItemCon a:link {
@@ -456,6 +456,18 @@ header {
     border:1px solid #aca49a;
 }
 
+#articlesPage article
+{
+    border-bottom:1px solid #cccccc;
+    width:340px;
+    height:210px;
+}
+
+#articlesPage article > a:hover
+{
+    color:#c68607;
+}
+
 #mapCon {
     height:260px;
     width:360px;
@@ -484,12 +496,14 @@ header {
     height:540px;
 }
 
-.categoryLink {
+.categoryCon > a, a:link {
     color:#21201d;
+    border:none;
 }
 
-.categoryLink :hover {
+.categoryCon > a:hover {
     color:#c68607;
+    border:none;
 }
 
 .categoryCon {
@@ -610,6 +624,10 @@ header {
     bottom:8px;
 }
 
+#sampleLettersCon .lettersLink:hover {
+    border-bottom:1px dashed #21201d;
+}
+
 #sampleLettersCon .letterImg {
     height:60px;
     width:70px;
@@ -636,6 +654,11 @@ header {
     font-size:14px;
 }
 
+#bigMapCon a:hover {
+    border-bottom-width:1px;
+    border-bottom-style: dashed;
+}
+
 #bigMap {
     border:1px solid #b3b0a9;
     margin-top:5px;
@@ -645,7 +668,6 @@ header {
 
 #aboutBtm {
     margin-top:40px;
-    height:420px;
     font-size:18px
 }
 
@@ -656,6 +678,14 @@ header {
 
 .formElementCon {
     margin-top:12px;
+}
+
+#contactUs {
+    float:right;
+}
+
+#contactUs a:hover {
+    border-bottom:1px dashed #21201d;
 }
 
 /*Pagination*/

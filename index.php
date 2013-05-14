@@ -40,7 +40,7 @@ $title = isset($seoData['Title']) ? "מור גלרי | ".$seoData['Title'] : "מ
 						<br/><a href='mailto:moregllr@gmail.com' class='regularColorLink'><span class='english'>moregllr@gmail.com</span></a>
 					</div>
 					<nav id='topMenuCon'>
-						<?php GenTopMenu(1); ?>
+						<?php GenTopMenu(); ?>
 					</nav>
 				</div>
 				<div class='clear'></div>
@@ -80,11 +80,12 @@ $title = isset($seoData['Title']) ? "מור גלרי | ".$seoData['Title'] : "מ
 </html> 
 
 <?php 
-function GenTopMenu($pMenuType)
+function GenTopMenu()
 {
-	if (!CanGenMenu($pMenuType)) return;
+    $menuType = 1;
+	if (!CanGenMenu($menuType)) return;
 	
-	$items = GetMenuItems($pMenuType, 0);
+	$items = GetMenuItems($menuType, 0);
 	if (is_null($items) || count($items) == 0) return;	?>
 	
 	<ul id="topMenu">
@@ -97,11 +98,11 @@ function GenTopMenu($pMenuType)
 	foreach ($items as $item)
 	{
 		$newTab = $item['IsNewTab'] == 0 ? '' : "target='_blank'";
-		$subItems = GetMenuItems($pMenuType, $item['Id']);
+		$subItems = GetMenuItems($menuType, $item['Id']);
 		$areSubItems = (isset($subItems) && count($subItems) > 0 && $item['IsSubVisible'] == 1);
-        $url = isset($item['Url']) ? $item['Url'] : $item['Title']   ?>
-		
-		<li id="topMenuItem_<?php echo $item['Order']?>" class="topMenuItemCon">
+        $url = isset($item['Url']) ? $item['Url'] : $item['Title'];?>
+
+		<li id="topMenuItem_<?php echo $item['Id']?>" class="topMenuItemCon">
 			<div>
 				<a href='<?php echo $url?>' <?php echo $newTab?>>
 					<?php echo $item['Title']; if ($areSubItems) echo "&#x25BE;";?>
@@ -110,13 +111,13 @@ function GenTopMenu($pMenuType)
 	<?php
 		if ($areSubItems == 1)
 		{	?>
-			<ul id="topMenuSub_<?php echo $item['Order']?>" class="topMenuSubCon">
+			<ul id="topMenuSub_<?php echo $item['Parent']."_".$item['Id']?>" class="topMenuSubCon">
 			<?php
 			foreach($subItems as $subItem)
 			{	?>
 				<li><a href=''><?php echo $subItem['Title']?></a></li>
 				<?php
-				if ($subItem['Order'] < count($subItems)) 
+				if ($subItem['IntOrder'] < count($subItems))
 				{	?>
 					<div class="topMenuSubSep">&nbsp;</div>
 				<?php
@@ -157,15 +158,15 @@ function CanGenMenu($pMenuType)
 
 function GetMenuItems($pMenuType, $pParent)
 {
-	$que = "SELECT M.Id, M.MenuType, M.Parent, M.Order, M.Title, M.Url, M.IsSubVisible, M.IsNewTab, M.PageId
+	$que = "SELECT M.Id, M.MenuType, M.Parent, M.IntOrder, M.Title, M.Url, M.IsSubVisible, M.IsNewTab, M.PageId
 			FROM MenuItem M
 			WHERE M.MenuType =".$pMenuType." AND M.Parent = ".$pParent."  AND M.IsVisible = 1
-			ORDER BY M.Order";
+			ORDER BY M.IntOrder";
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
 	$items = array();
 	while ($row = mysql_fetch_assoc($sql))
 	{
-		$items[$row['Order']] = $row;
+		$items[$row['Id']] = $row;
 	}
 	if (is_null($items) || count($items) == 0) return null;	
 	return $items;

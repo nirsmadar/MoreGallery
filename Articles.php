@@ -5,15 +5,15 @@
 <?php
 function GenArticles()
 {
-	$que = "SELECT P.Id, P.Order, P.Title, P.ShortDescription, P.PublishedDate, P.Image
+	$que = "SELECT P.Id, P.IntOrder, P.Title, P.ShortDescription, P.PublishedDate, P.Image
 			FROM Page P
 			WHERE P.PageType = ".GetPageTypeId("Article")." AND P.IsVisible = 1
-			ORDER BY P.PublishedDate DESC, P.Order";
+			ORDER BY P.PublishedDate DESC, P.IntOrder";
 			
 	$sql = mysql_query($que) or die('Query failure:' .mysql_error()); 
 	while ($row = mysql_fetch_assoc($sql))
 	{
-		$articles[$row['Order']] = $row;
+		$articles[$row['Id']] = $row;
 	}		
 		
 	$numOfArticles = count($articles);
@@ -30,7 +30,7 @@ function GenArticles()
 			<div <?php if ($i > 2 && (($i - 1) % 2 == 0)) echo "style='margin-top:30px;'"?>>
 		<?php
 		}	?>
-		<article style="border-bottom:1px solid #cccccc;width:340px;height:210px;float:<?php echo $float.";" ?>">
+		<article style="float:<?php echo $float.";" ?>">
 			<a href="<?php echo ARTICLES_HE."/".$article['Title'] ?>">
 				<img src="upload/articles/<?php echo $article['Image']?>" style="float:right;border:1px solid #aca49a;" />
 				<div style="float:left;width:200px;">
