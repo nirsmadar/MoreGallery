@@ -130,25 +130,47 @@ function GenLettersInColumn($pLetters, $pColumnIndex, $pNumOfColumns)
 
 function GenAddLetterForm()
 {   ?>
+
     <div id="dialogCon">
         <div id="addLetterForm" class="dialog">
             <div onclick=CloseDialog() id="closeButton"></div>
-            <h2>כתבו לנו</h2>
+            <h2>
+                נהניתם לגלוש באתר? רוצים לכתוב לנו ולפרסם המלצה?<br/><br/>
+            </h2>
+            <h3>
+                שלחו לנו מכתב למייל <a href="mailto:moregllr@gmail.com">moregllr@gmail.com</a>, ואנחנו נשמח לפרסם אותו באתר
+            </h3>
+        </div>
+    </div>
+    <?php
+    /*?>
+
+    $num1 = rand(1, 5);
+    $num2 = rand(1, 5);
+    ?>
+    <div id="dialogCon">
+        <div id="addLetterForm" class="dialog">
+            <div onclick=CloseDialog() id="closeButton"></div>
+            <h2>כתבו לנו (כל השדות הם שדות חובה)</h2>
             <div class="">
-                <div style="float:right;">
-                    <div>שם</div>
-                    <input class="input2" type="text"/>
-                </div>
-                <div class="clear">&nbsp;</div>
+                <div class="formElementCon">שם</div>
+                <div class="formElementCon" style="display:<?php ($_POST['txtNameError'] != "") ? 'block' : 'hidden'?>"><?php $_POST['txtNameError']?></div>
+                <input name="txtName" class="input2" type="text"/>
 
                 <div class="formElementCon">כתובת מייל</div>
-                <input type="text" class="input2" style="text-align:left"/>
+                <input name="txtMail" type="text" class="input2" style="text-align:left"/>
 
                 <div class="formElementCon">כותרת</div>
-                <input type="text" class="input2"/>
+                <input name="txtTitle" type="text" class="input2"/>
 
                 <div class="formElementCon">תוכן ההודעה</div>
-                <textarea class="input2" style="height:150px"></textarea>
+                <textarea name="txtContent" class="input2" style="height:150px"></textarea>
+
+                <input name="txtNum1" type="text" hidden="true"/>
+                <input name="txtNum2" type="text" hidden="true"/>
+
+                <div class="formElementCon">מהו הסכום של <?php echo $num1 ?> ועוד 4? (כדי למנוע שליחת דואר זבל)</div>
+                <input name="txtResult" type="text" class="input2"/>
 
                 <div class="formElementCon">
                     <input type="submit" value="שליחה"/>
@@ -157,6 +179,9 @@ function GenAddLetterForm()
             </div>
         </div>
     </div>
+<?php
+    */
+    ?>
     <script type="text/javascript">
         function CloseDialog()
         {
@@ -173,7 +198,7 @@ function GenAddLetterForm()
             });
         }
     </script>
-<?php
+    <?php
 }
 
 function GenPagination()

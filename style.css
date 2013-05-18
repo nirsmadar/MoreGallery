@@ -18,7 +18,6 @@ body {
     margin:0;
     padding:0;
     direction:rtl;
-
     font-family: 'Carmela', 'Tahoma', 'Segoe UI';
     font-size:14px;
     color:#21201d;
@@ -39,7 +38,7 @@ a:hover {
     color:#ffc332;
 }
 
-a, img {
+img {
     border:none;
 }
 
@@ -220,7 +219,7 @@ header {
     color:#fff;
     /*color:#feecc1;*/
     margin:0 7.5px;
-    padding:7px 15px 0px 15px;
+    padding:7px 15px 0 15px;
     border-top-left-radius:5px 5px;
     border-top-right-radius:5px 5px;
     border-top:1px solid #4f0e0e;
@@ -245,7 +244,7 @@ header {
 .facebookMenuItem {
     float:right;
     margin:0 7.5px;
-    padding:1px 15px 0px 15px;
+    padding:1px 15px 0 15px;
     height:27px;
     width:60px;
     border-top-left-radius:5px 5px;
@@ -496,7 +495,7 @@ header {
     height:540px;
 }
 
-.categoryCon > a, a:link {
+.categoryCon > a, .categoryCon > a:link {
     color:#21201d;
     border:none;
 }
@@ -684,10 +683,6 @@ header {
     float:right;
 }
 
-#contactUs a:hover {
-    border-bottom:1px dashed #21201d;
-}
-
 /*Pagination*/
 #paginationCon {
     margin:0;
@@ -780,7 +775,7 @@ header {
     margin: 4px -4px 0 0;
     border-radius: 0 10px 10px 0;
     border:2px ridge #c4bfb1;
-    border-left: 0px;
+    border-left: 0;
     font-size: 18px;
     text-shadow: #454545 0.1em 0.1em 0.2em;
 }

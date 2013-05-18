@@ -14,14 +14,13 @@ $title = isset($seoData['Title']) ? "מור גלרי | ".$seoData['Title'] : "מ
 <head>
     <base href="<?php echo BASE_URL ?>/">
 	<title><?php echo $title ?></title>
-	<link rel="stylesheet" href="style.css">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
     <script type="text/javascript" src="scripts/megafolio/js/jquery.themepunch.plugins.min.js"></script>
-	<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>-->
 	<?php include "MegafolioHead.html";	?>
 </head>
 <body>

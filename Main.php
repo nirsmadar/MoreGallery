@@ -1,3 +1,7 @@
+<?php
+//include("WriteToUs.php")
+?>
+
 <div id='Main'>
 	<div id='articlesAndMapCon'>
 		<div id='articles'>
@@ -41,7 +45,7 @@ function GenArticles()
 		$i++;
         $title = GetShortString($article['Title'], 80);
         $text = GetShortString($article['ShortDescription'], 400); ?>
-		
+
 		<article id='article_<?php echo $i?>' class='article' <?php if ($i == 1) echo 'style=display:block'?>>
 			<h1><?php echo $title?></h1>
 			<h4 class='articleDate'>פורסם ב-<?php echo DateTimeToDate($article['PublishedDate'])?></h4>
